@@ -1,14 +1,24 @@
-import { Specification } from "../model/Specification";
+import { Specification } from "../../model/Specification";
 import {
   ISpecificationsDTO,
   ICreateSpecificationDTO,
-} from "./ISpecificationsRepository";
+} from "../ISpecificationsRepository";
 
 class SpecificationsRepository implements ISpecificationsDTO {
   private specifications: Specification[];
 
-  constructor() {
+  // eslint-disable-next-line no-use-before-define
+  private static INSTANCE: SpecificationsRepository;
+
+  private constructor() {
     this.specifications = [];
+  }
+
+  public static getInstance(): SpecificationsRepository {
+    if (!this.INSTANCE) {
+      this.INSTANCE = new SpecificationsRepository();
+    }
+    return this.INSTANCE;
   }
 
   create({ name, description }: ICreateSpecificationDTO): void {

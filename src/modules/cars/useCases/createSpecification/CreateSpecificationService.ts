@@ -1,4 +1,4 @@
-import { ISpecificationsDTO } from "../repositories/ISpecificationsRepository";
+import { ISpecificationsDTO } from "../../repositories/ISpecificationsRepository";
 
 interface IRequest {
   name: string;
