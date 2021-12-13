@@ -14,7 +14,7 @@ class ImportCategoryController {
 
     this.importCategoryService.execute(file);
 
-    return response.send();
+    return response.status(200).send();
   }
 }
 
