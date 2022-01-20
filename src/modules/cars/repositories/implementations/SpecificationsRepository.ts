@@ -1,42 +1,40 @@
+import { getRepository, Repository } from "typeorm";
+
+import { Category } from "../../entities/Category";
 import { Specification } from "../../entities/Specification";
 import {
-  ISpecificationsDTO,
+  ISpecificationsRepository,
   ICreateSpecificationDTO,
 } from "../ISpecificationsRepository";
 
-class SpecificationsRepository implements ISpecificationsDTO {
-  private specifications: Specification[];
-
-  // eslint-disable-next-line no-use-before-define
-  private static INSTANCE: SpecificationsRepository;
+class SpecificationsRepository implements ISpecificationsRepository {
+  private repository: Repository<Category>;
 
   private constructor() {
-    this.specifications = [];
+    this.repository = getRepository(Category);
   }
 
-  public static getInstance(): SpecificationsRepository {
-    if (!this.INSTANCE) {
-      this.INSTANCE = new SpecificationsRepository();
-    }
-    return this.INSTANCE;
-  }
+  // public static getInstance(): SpecificationsRepository {
+  //   if (!this.INSTANCE) {
+  //     this.INSTANCE = new SpecificationsRepository();
+  //   }
+  //   return this.INSTANCE;
+  // }
 
-  create({ name, description }: ICreateSpecificationDTO): void {
-    const specification = new Specification();
-
-    Object.assign(specification, {
-      name,
+  async create({ name, description }: ICreateSpecificationDTO): Promise<void> {
+    const specification = this.repository.create({
       description,
-      created_at: new Date(),
+      name,
     });
 
-    this.specifications.push(specification);
+    await this.repository.save(specification);
   }
 
   findByName(name: string): Specification {
-    return this.specifications.find((specification) => {
-      return specification.name === name;
-    });
+    // return this.repository.find((specification) => {
+    //   return specification.name === name;
+    // });
+    return null;
   }
 }
 

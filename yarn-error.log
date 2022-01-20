@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add -D @types/typeormp
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add reflect-metadata
 
 PATH: 
   C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\Git\cmd;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\ProgramData\chocolatey\bin;;C:\Program Files\erl-24.1.4\bin;C:\Program Files (x86)\Elixir\bin;C:\Users\dioni\.mix\escripts;C:\ProgramData\chocolatey\lib\Elixir/bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\dioni\AppData\Local\Microsoft\WindowsApps;C:\Users\dioni\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\dioni\AppData\Local\GitHubDesktop\bin;C:\Users\dioni\AppData\Roaming\npm;C:\Users\dioni\AppData\Local\Yarn\bin
@@ -14,17 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2ftypeormp: Not found
-      at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:66140:18)
-      at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:140885:22)
-      at Request.emit (node:events:390:28)
-      at Request.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141857:10)
-      at Request.emit (node:events:390:28)
-      at IncomingMessage.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141779:12)
-      at Object.onceWrapper (node:events:509:28)
-      at IncomingMessage.emit (node:events:402:35)
-      at endReadableNT (node:internal/streams/readable:1343:12)
-      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+  Error: EPERM: operation not permitted, unlink 'C:\Users\dioni\OneDrive\Documentos\GitHub\rentalx\node_modules\.bin\ts-node-dev'
 
 npm manifest: 
   {
@@ -60,6 +50,7 @@ npm manifest:
       "multer": "^1.4.4",
       "pg": "^8.7.1",
       "reflect-metadata": "^0.1.13",
+      "tsyringe": "^4.6.0",
       "typeorm": "^0.2.41",
       "uuid": "^8.3.2"
     }
@@ -2292,7 +2283,7 @@ Lockfile:
       strip-bom "^3.0.0"
       strip-json-comments "^2.0.0"
   
-  tslib@^1.8.1:
+  tslib@^1.8.1, tslib@^1.9.3:
     version "1.14.1"
     resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
     integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
@@ -2308,6 +2299,13 @@ Lockfile:
     integrity sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==
     dependencies:
       tslib "^1.8.1"
+  
+  tsyringe@^4.6.0:
+    version "4.6.0"
+    resolved "https://registry.yarnpkg.com/tsyringe/-/tsyringe-4.6.0.tgz#14915d3d7f0db35e1cf7269bdbf7c440713c8d07"
+    integrity sha512-BMQAZamSfEmIQzH8WJeRu1yZGQbPSDuI9g+yEiKZFIcO46GPZuMOC2d0b52cVBdw1d++06JnDSIIZvEnogMdAw==
+    dependencies:
+      tslib "^1.9.3"
   
   type-check@^0.4.0, type-check@~0.4.0:
     version "0.4.0"

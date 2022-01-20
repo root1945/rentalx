@@ -1,16 +1,18 @@
-import { ISpecificationsDTO } from "../../repositories/ISpecificationsRepository";
+import { inject, injectable } from "tsyringe";
+
+import { ISpecificationsRepository } from "../../repositories/ISpecificationsRepository";
 
 interface IRequest {
   name: string;
   description: string;
 }
 
+@injectable()
 class CreateSpecificationService {
-  private spectificationsRepository;
-
-  constructor(spectificationsRepository: ISpecificationsDTO) {
-    this.spectificationsRepository = spectificationsRepository;
-  }
+  constructor(
+    @inject("SpectificationsRepository")
+    private spectificationsRepository: ISpecificationsRepository
+  ) { }
 
   execute({ name, description }: IRequest): void {
     const specificationAlreadyExists =
