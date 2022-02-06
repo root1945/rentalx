@@ -13,7 +13,7 @@ class CreateSpecificationService {
   constructor(
     @inject("SpecificationsRepository")
     private spectificationsRepository: ISpecificationsRepository
-  ) { }
+  ) {}
 
   async execute({ name, description }: IRequest): Promise<void> {
     const specificationAlreadyExists =
